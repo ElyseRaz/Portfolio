@@ -30,6 +30,7 @@ function Header() {
         const section = sectionId.substring(1) as SectionName;
         setActiveSection(section);
         setIsMenuOpen(false);
+        window.location.hash = sectionId; // Force le défilement vers la section
     };
 
     useEffect(() => {
@@ -171,7 +172,10 @@ function Header() {
                                     <li key={item.name}>
                                         <a
                                             href={item.href}
-                                            onClick={(e) => handleClick(item.href)}
+                                            onClick={(e) => {
+                                                e.preventDefault(); // Empêche la redirection par défaut
+                                                handleClick(item.href);
+                                            }}
                                             className={`${
                                                 activeSection === item.href.substring(1)
                                                     ? "text-green-500 border-green-500"

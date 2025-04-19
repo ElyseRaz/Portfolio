@@ -1,12 +1,13 @@
 "use client"
 
-import React, { useContext, useEffect, useRef } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { ActiveSectionContext } from '../context/ActiveSectionContext';
 import { ThemeContext } from '../context/ThemeContext';
 import { motion } from 'framer-motion';
 
 function About() {
     const { isDarkMode } = useContext(ThemeContext)!;
+    const [isMenuOpen, setIsMenuOpen] = useState(false); // État pour le menu hamburger
 
     const data = [
         { image: "icons8-ux-100.png", title: "UX/UI Design", description: "I make website mockups with neat designs to improve the User Experience and User Interface" },
@@ -75,7 +76,8 @@ function About() {
 
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
+            console.log("Observer triggered:", entries[0].isIntersecting, "Menu open:", isMenuOpen); // Débogage
+            if (entries[0].isIntersecting && !isMenuOpen) { // Vérifie si le menu est fermé
                 setActiveSection("about");
                 window.history.replaceState(null, "", "#about");
             }
@@ -93,7 +95,7 @@ function About() {
                 observer.unobserve(sectionRef.current);
             }
         };
-    }, [setActiveSection]);
+    }, [setActiveSection, isMenuOpen]); // Ajoutez isMenuOpen comme dépendance
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -118,6 +120,16 @@ function About() {
 
     return (
         <section id='about' className={`min-h-screen pt-11 px-4 md:px-8 scroll-mt-20 ${isDarkMode ? 'bg-[#121B17] text-white' : 'bg-[#E6F6EB] text-black'} pb-5`} ref={sectionRef}>
+            {/* Ajoutez un gestionnaire pour le menu hamburger */}
+            <button
+                onClick={() => {
+                    setIsMenuOpen(!isMenuOpen);
+                    console.log("Menu state changed:", !isMenuOpen); // Débogage
+                }}
+                className="hamburger-menu"
+            >
+                {/* Icône ou contenu du menu */}
+            </button>
             <motion.h1
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
