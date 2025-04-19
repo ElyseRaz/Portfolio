@@ -24,8 +24,8 @@ const radioCanada = Radio_Canada({
 })
 
 export const metadata: Metadata = {
-  title: "Portfolio Elysé Razafindrakoto",
-  description: "Portfolio de Elysé Razafindrakoto, développeur web",
+  title: "Portfolio Elysé Razafindravonjy",
+  description: "Portfolio de Elysé Razafindravonjy, développeur web",
 };
 
 export default function RootLayout({
