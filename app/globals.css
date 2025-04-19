@@ -1,26 +1,77 @@
 @import "tailwindcss";
+@plugin "tailwindcss-motion";
 
 :root {
-  --background: #ffffff;
+  --background: #121B17;
+  --text: #ffffff;
+  --nav-bg: #121B17;
   --foreground: #171717;
+  --color-primary:#2B9A66;
+  --background-color: #121B17;
+  --text-color: #ffffff;
+}
+
+.light-mode {
+  --background-color: #ffffff;
+  --text-color: #121B17;
+}
+
+[data-theme='light'] {
+  --background: #ffffff;
+  --text: #000000;
+  --nav-bg: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-title: var(--font-noto);
+  --font-text: var(--font-radio);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0E1512;
     --foreground: #ededed;
+    --color-primary:#2B9A66;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  font-family: var(--font-text);
+  transition: all 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6  {
+  color: var(--color-primary);
+}
+
+a p {
+  font-family: var(--font-text);
+}
+
+a:hover{
+  color:var(--color-primary);
+}
+
+h1{
+  font-family: var(--font-title);
+  font-weight: bold;
+  
+}
+
+.cv{
+  background-color: #2B9A66;
+  color:#FFF;
+}
+
+.cv:hover{
+  background-color: #167245;
+  color: #FFF;
+}
+
+html {
+  scroll-behavior: smooth;
 }
