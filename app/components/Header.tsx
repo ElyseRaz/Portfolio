@@ -165,7 +165,7 @@ function Header() {
 
                 {/* Menu mobile */}
                 {isMenuOpen && (
-                    <div className='fixed top-[4.5rem] right-0 w-[80%] max-w-sm h-auto bg-[#121B17] md:hidden rounded-l-2xl shadow-lg border-l border-t border-[#2B9A66]/20'>
+                    <div className={`fixed top-[4.5rem] right-0 w-[80%] max-w-sm h-auto ${isDarkMode ? "bg-[#121B17]" : "bg-[#E6F6EB]"} md:hidden rounded-l-2xl shadow-lg border-l border-t border-[#2B9A66]/20`}>
                         <nav className='p-6'>
                             <ul className='flex flex-col space-y-6'>
                                 {link.map((item) => (
@@ -179,7 +179,7 @@ function Header() {
                                             className={`${
                                                 activeSection === item.href.substring(1)
                                                     ? "text-green-500 border-green-500"
-                                                    : "text-gray-300 border-transparent"
+                                                    : "text-gray-600 border-transparent"
                                             } flex items-center space-x-2 text-base font-medium hover:text-green-500 transition-colors py-2 px-4 border-l-2`}
                                         >
                                             {item.name}
