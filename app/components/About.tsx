@@ -18,7 +18,7 @@ function About() {
     const education = [
         { date: "2022 - 2023", description: "Baccalaureate Series C at CSFX Ambatomena Fianarantsoa" },
         { date: "2023 - 2024", description: "1st year of Bachelor's degree in Software Engineering and Database at ENI Tanambao Fianarantsoa" },
-        { date: "2024 - 2025", description: "1st year of Bachelor's degree in Software Engineering and Database at ENI Tanambao Fianarantsoa" },
+        { date: "2024 - 2025", description: "2nd year of Bachelor's degree in Software Engineering and Database at ENI Tanambao Fianarantsoa" },
     ]
 
     const skills = [
